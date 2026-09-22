@@ -1,7 +1,7 @@
 // Основной скрипт для лендинга хакатона
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Лендинг чемпионата по спортивному программированию загружен');
+    console.log('Лендинг фестиваля «ТехноСпортФест – 2026» загружен (этап 1, кейс № 1)');
     
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Наблюдаем за карточками возможностей
-    const featureCards = document.querySelectorAll('.feature-card');
+    const featureCards = document.querySelectorAll('.feature-card, .module-card');
     featureCards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
@@ -46,7 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const visibleClass = 'visible';
     const style = document.createElement('style');
     style.textContent = `
-        .feature-card.visible {
+        .feature-card.visible,
+        .module-card.visible {
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
@@ -99,6 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
     ██╔═══╝ ██╔══██║██║     ██║   ██║██╔══██╗██╔═══╝ ██║╚██╔╝██║
     ██║     ██║  ██║╚██████╗╚██████╔╝██║  ██║██║     ██║ ╚═╝ ██║
     ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝     ╚═╝
-    Чемпионат Республики Дагестан по спортивному программированию 2026
+    Республиканский фестиваль «ТехноСпортФест – 2026» • Кейс № 1 • Этап: дистанционный
     `);
 });

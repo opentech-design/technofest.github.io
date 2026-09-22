@@ -231,6 +231,222 @@ body {
     line-height: 1.7;
 }
 
+.info-content ul {
+    list-style: none;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-content li {
+    margin-bottom: 0.6rem;
+    position: relative;
+    color: #555;
+}
+
+.info-content li::before {
+    content: '▸';
+    color: #00d4ff;
+    font-weight: bold;
+    position: absolute;
+    left: -1.5rem;
+}
+
+/* Баннер этапа */
+.stage-banner {
+    background: linear-gradient(135deg, #00b8e6 0%, #0090c5 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 5px 20px rgba(0, 212, 255, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stage-badge {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    line-height: 1.1;
+    flex-shrink: 0;
+    letter-spacing: 1px;
+}
+
+.stage-badge small {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0.95;
+    margin-top: 0.3rem;
+    letter-spacing: 2px;
+}
+
+.stage-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.stage-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.stage-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 0.8rem 0 1rem;
+}
+
+.stage-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.45rem 1rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0.98;
+}
+
+.stage-meta-item i {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.stage-note {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-top: 0.3rem;
+}
+
+/* Модули платформы */
+.module-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.module-card h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.module-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #00d4ff 0%, #0090c5 100%);
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 212, 255, 0.3);
+}
+
+.module-body p {
+    margin-bottom: 1rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.module-list {
+    list-style: none;
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.module-list li {
+    margin-bottom: 0.6rem;
+    position: relative;
+    color: #555;
+}
+
+.module-list li::before {
+    content: '▸';
+    color: #00d4ff;
+    font-weight: bold;
+    position: absolute;
+    left: -1.5rem;
+}
+
+.sub-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 1.8rem 0 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #00d4ff;
+    display: inline-block;
+}
+
+.note-box {
+    background: #fff8e6;
+    border-left: 5px solid #ffb300;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-top: 1.5rem;
+}
+
+.note-box h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #8a6d00;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.note-box h4 i {
+    color: #ffb300;
+}
+
+.note-box ul {
+    list-style: none;
+    padding-left: 0.5rem;
+}
+
+.note-box li {
+    margin-bottom: 0.6rem;
+    position: relative;
+    padding-left: 1.5rem;
+    color: #6b5800;
+    line-height: 1.6;
+}
+
+.note-box li::before {
+    content: '\26A0';
+    color: #ffb300;
+    position: absolute;
+    left: 0;
+}
+
 /* Галерея */
 .gallery {
     margin-bottom: 4rem;
@@ -405,6 +621,25 @@ body {
         align-items: center;
         gap: 1rem;
     }
+
+    .stage-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+    }
+
+    .stage-info h3 {
+        font-size: 1.25rem;
+    }
+
+    .module-card {
+        padding: 1.5rem;
+    }
+
+    .module-card h3 {
+        font-size: 1.3rem;
+        flex-wrap: wrap;
+    }
 }
 
 /* Анимации */
@@ -413,7 +648,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.intro, .platform-features, .additional-info, .gallery, .contact {
+.intro, .platform-features, .additional-info, .gallery, .contact, .stage-banner {
     animation: fadeIn 0.8s ease-out;
 }
 
