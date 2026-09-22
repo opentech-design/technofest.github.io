@@ -20,30 +20,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+    // Плавное появление карточек и галереи при скролле (с запасным вариантом,
+    // чтобы контент гарантированно оставался видимым даже при проблемах с JS)
+    const revealEl = el => {
+        el.classList.add('visible');
+        el.style.opacity = '1';
+        el.style.transform = '';
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-    
-    // Наблюдаем за карточками возможностей
+
     const featureCards = document.querySelectorAll('.feature-card, .module-card');
-    featureCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-    
-    const visibleClass = 'visible';
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
     const style = document.createElement('style');
     style.textContent = `
         .feature-card.visible,
@@ -57,15 +44,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
-    
-    // Наблюдаем за галереей
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'scale(0.95)';
-        item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(item);
-    });
+
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    revealEl(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        featureCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        galleryItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.95)';
+            item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(item);
+        });
+
+        // Запасной вариант: принудительно показываем всё, даже если наблюдатель не сработал
+        setTimeout(() => {
+            featureCards.forEach(revealEl);
+            galleryItems.forEach(revealEl);
+        }, 4000);
+    } else {
+        // Без поддержки IntersectionObserver показываем всё сразу
+        featureCards.forEach(revealEl);
+        galleryItems.forEach(revealEl);
+    }
     
     const yearElements = document.querySelectorAll('.footer-text, .site-subtitle');
     yearElements.forEach(el => {
